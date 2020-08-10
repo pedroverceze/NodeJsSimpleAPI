@@ -1,7 +1,4 @@
-
 const amqp = require('amqplib/callback_api');
-
-
 
 module.exports = {
     async index(request, response) {
@@ -23,7 +20,6 @@ module.exports = {
                 SendMsg(conn, json);
             });
 
-
         return response.json(json);
     }
 };
@@ -33,4 +29,3 @@ function SendMsg(conn, msg) {
 
     channel.sendToQueue('recipe-register-queue', new Buffer.from(JSON.stringify(msg)));
 }
-
